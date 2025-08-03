@@ -1,0 +1,847 @@
+/* ============================================
+   TOUTES LES SECTIONS PLEIN ÉCRAN
+   --------------------------------------------
+   Chaque section occupe au moins toute la vue
+   ============================================ */
+section {
+  min-height: 100vh;
+}
+
+/* ============================================
+   DECLARATION DES FONTS PERSONNALISEES
+   ============================================ */
+@font-face {
+  font-family: 'Laluna';
+  src: url('../assets/fonts/LALUNA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   --------------------------------------------
+   Réinitialise marges, paddings, boîtes et
+   définit la police de base du body
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kaisei Tokumin', serif;
+  background-color: #8A0932;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAVBAR
+   --------------------------------------------
+   Position et style de la barre de navigation
+   ============================================ */
+.navbar {
+  position: absolute;
+  top: 1.5rem;
+  right: 5rem;
+  z-index: 10;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   INTRO SECTION
+   --------------------------------------------
+   Conteneur principal pour texte + images
+   ============================================ */
+#intro {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 8%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================================
+   SVG BACKGROUNDS
+   --------------------------------------------
+   Décorations SVG positionnées en absolute
+   ============================================ */
+.svg-bg {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 1.2;
+  z-index: 1;
+}
+
+.svg-cocktail {
+  top: 50%;
+  left: 54%;
+  transform: translate(-45%, -75%) rotate(4deg);
+  width: 700px;
+  height: 450px;
+  background-image: url('../assets/svg/verre-cocktail.svg');
+}
+
+.svg-plante {
+  bottom: 5%;
+  right: 5%;
+  width: 250px;
+  height: 250px;
+  background-image: url('../assets/svg/plante-accueil.svg');
+}
+
+/* ============================================
+   TEXT BLOCK
+   --------------------------------------------
+   Styles du bloc texte : titre, sous-titre, paragraphe
+   ============================================ */
+.intro-left {
+  flex: 1;
+  max-width: 480px;
+  z-index: 2;
+}
+
+.intro-left h1 {
+  position: relative;
+  top: -4rem;
+  font-family: 'Laluna', serif;
+  font-size: 3.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 7rem;
+}
+
+.intro-left .italic {
+  font-style: italic;
+}
+
+.intro-left h2 {
+  font-size: 1.5rem;
+  font-family: 'Laluna', serif;
+  margin-bottom: 2rem;
+}
+
+.intro-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background-color: #fff;
+  color: #8A0932;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* ============================================
+   RIGHT STACKED IMAGES
+   --------------------------------------------
+   Positionnement absolu pour superposition
+   ============================================ */
+.intro-right {
+  position: relative;
+  flex: 1;
+  height: 450px;
+  max-width: 500px;
+  z-index: 2;
+}
+
+.intro-right .photo1 {
+  position: absolute;
+  top: 30px;
+  right: 150px;
+  z-index: 4;
+}
+
+.intro-right .photo2 {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  z-index: 1;
+  transform: scale(1.4);
+  transform-origin: center center;
+}
+
+.intro-right .photo3 {
+  position: absolute;
+  top: 58%;
+  left: -53px;
+  transform: scale(1.4);
+  transform-origin: center center;
+  z-index: 2;
+}
+
+.intro-right img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s;
+}
+
+/* ============================================
+   TAILLES & RECADRAGE DES IMAGES
+   --------------------------------------------
+   Définit largeur/hauteur + object-fit
+   ============================================ */
+.photo-cocktail-table {
+  width: 220px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.photo-conv-assises {
+  width: 180px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.photo-salon-discussion {
+  width: 350px;
+  height: 250px;
+  aspect-ratio: 803.73 / 1740;
+  object-fit: cover;
+  object-position: 50% 70%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* ============================================
+   SECTION “Qui est Divine ?”
+   --------------------------------------------
+   Conteneur de la partie présentant Divine :
+   arrière-plan, padding, overflow pour laisser les SVG dépasser
+   ============================================ */
+#divine {
+  position: relative;
+  background-color: #FFF9EB;  /* fond crème spécifique à cette section */
+  padding: 6rem 8%;            /* espace interne autour du contenu */
+  overflow: visible;           /* permet aux décorations SVG de déborder */
+}
+
+/* ============================================
+   Disposition horizontale du contenu
+   --------------------------------------------
+   image à gauche, texte à droite sur grand écran
+   ============================================ */
+#divine .container {
+  display: flex;
+  align-items: center;         /* centre verticalement image et texte */
+  gap: 4rem;                   /* espace entre image et texte */
+  max-width: 1200px;
+  margin: 0 auto;              /* centre le container horizontalement */
+}
+
+/* ============================================
+   Image recadrée et stylisée
+   --------------------------------------------
+   cadre responsive, bord arrondi, ombre légère
+   ============================================ */
+.divine-image img {
+  top: 20%;
+  width: 80%;                  /* occupe 80% de la largeur du parent */
+  max-width: 480px;            /* ne dépasse pas 480px */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  object-fit: cover;           /* recadre l’image pour remplir son cadre */
+}
+
+
+/* ============================================
+   Bloc texte : typographie et couleurs
+   --------------------------------------------
+   police principale Kaisei Tokumin en vert foncé
+   ============================================ */
+.divine-text {
+  flex: 1;                     /* prend tout l’espace restant */
+  max-width: 600px;   /* ajuste selon ta maquette */
+}
+.divine-text .subtitle,
+.divine-text h2,
+.divine-text p,
+.divine-text .objective,
+.divine-text .signature {
+  font-family: 'Kaisei Tokumin', serif;
+  color: #00321E;              /* vert profond pour le texte */
+}
+
+.divine-text .subtitle {
+  margin-bottom: 1rem; /* espace sous le sous-titre */
+}
+
+/* Titre de section en police Laluna */
+.divine-text h2 {
+  font-family: 'Laluna', serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   Paragraphes et callout ``objectif``
+   --------------------------------------------
+   espacements pour aérer le texte
+   ============================================ */
+
+.divine-text .objective {
+  margin-top: 1rem;
+}
+
+/* 2. Mise en forme des paragraphes */
+.divine-text p {
+  line-height: 2.1;          /* interlignage plus généreux pour la lisibilité */
+  max-width: 80ch;            /* limite la longueur des lignes pour plus de confort de lecture */
+  margin-bottom: 1.5rem;      /* espace entre chaque paragraphe */
+}
+
+/* ============================================
+   Signature “— Divine”
+   --------------------------------------------
+   italique et alignement à droite
+   ============================================ */
+.divine-text .signature {
+  margin-top: 2rem;
+  font-family: 'Luxurious Script ', cursive;
+  font-style: italic;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+/* ============================================
+   Décoration : plante SVG débordante
+   --------------------------------------------
+   position absolue, opacity faible
+   ============================================ */
+.svg-plante3 {
+  position: absolute;
+  top: 105%;
+  left: -8%;                /* dépassement depuis la gauche */
+  transform: translateY(-50%);
+  width: 800px;
+  height: 400px;
+  background-image: url('../assets/svg/plante3.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+  pointer-events: none;      /* n’interfère pas avec les clics */
+  z-index: 5;
+}
+
+/* Assure que tout contenu texte/image reste au-dessus de la plante */
+#divine .container,
+#divine .container * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   Décoration : illustration “réflexion” SVG
+   --------------------------------------------
+   déborde vers la droite, opacity légère
+   ============================================ */
+.svg-illustration-reflexion {
+  position: absolute;
+  top: 90%;
+  right: -36%;                /* sort du cadre vers la droite */
+  transform: translateY(-50%);
+  width: 900px;
+  height: 800px;
+  background-image: url('../assets/svg/illustration-reflexion.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  /* ← NE COUPE QUE L’ILLUSTRATION RÉFLEXION, pas la plante  */
+  clip-path: inset(0 0 100px 0);
+}
+
+/* ============================================
+   SECTION “Quel est mon concept ?”
+============================================ */
+#concept {
+  position: relative;
+  background-color: #2F865C; /* vert du design */
+  padding: 6rem 8%;
+  overflow: visible; /* ← c’est ça qui permet à plante3 de déborder ici */
+  /* tes autres propriétés existantes */
+}
+
+/* Conteneur 2 colonnes */
+#concept .container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Texte de la section */
+.concept-text {
+  flex: 1;
+  max-width: 600px;
+  color: #00321E;
+  font-family: 'Kaisei Tokumin', serif;
+  margin-top: -80px; /* remonte le bloc texte */
+}
+.concept-text .subtitle {
+  margin-bottom: 1rem;
+}
+.concept-text h2 {
+  font-family: 'Laluna', serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+.concept-text p {
+  line-height: 2.1;
+  max-width: 80ch;
+  margin-bottom: 1.5rem;
+}
+
+.concept-text a.btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 1.2rem; /* moins épais */
+  background-color: #00321E;
+  color: #2F865C; /* même vert que le background */
+  border-radius: 15px; /* bien arrondi */
+  text-decoration: none;
+  font-weight: 550; /* moins gras */
+  font-family: 'Arial', sans-serif;
+  transition: background 0.3s;
+  z-index: 5;
+}
+
+.concept-text a.btn:hover {
+  background-color: #025032;
+}
+
+/* ============================================
+   IMAGES SUPERPOSÉES - SECTION CONCEPT
+   ============================================ */
+
+/* Images superposées - VERSION SIMPLE selon maquette */
+.concept-images {
+  position: relative;
+  flex: 1;
+  height: 500px;
+  pointer-events: none;
+}
+
+.concept-images img {
+  position: absolute;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.concept-images .img1 {
+  /* Grande image verticale à DROITE EN HAUT */
+  top: -13%;
+  right: -5%;
+  width: 280px;
+  height: 350px;
+  z-index: 1;
+}
+
+.concept-images .img2 {
+  /* Petite image AU MILIEU */
+  top: 38%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  z-index: 3;  /* au-dessus de tout */
+}
+
+.concept-images .img3 {
+  /* Grande image horizontale à GAUCHE EN BAS */
+  top: 49%;
+  bottom: 0;
+  left: 0;
+  width: 550px;
+  height: 370px;
+  z-index: 2;
+}
+
+.concept-images img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+
+/* ============================================
+   DÉCOR SVG : plante 2 dans la section “Quel est mon concept ?”
+============================================ */
+.svg-plante2 {
+  position: absolute;
+  top: 95%;
+  left: -15%;                /* dépassement depuis la gauche */
+  opacity: 0.8;
+  transform: translateY(-50%);
+  width: 800px;              /* ajuste à la taille de ta SVG */
+  height: 600px;
+  background-image: url('../assets/svg/plante2.svg');
+}
+
+/* ============================================
+   DÉCOR SVG : plante 1 dans la section “Quel est mon concept ?”
+============================================ */
+.svg-plante1 {
+  position: absolute;
+  top: 45%;
+  bottom: -5%;               /* un peu sous la section pour déborder */
+  right: -45%;                /* dépassement vers la droite */
+  opacity: 0.8;
+  transform: translate(0%, 0%) rotate(1deg);
+  width: 850px;              /* ajuste selon ta SVG */
+  height: 750px;
+  background-image: url('../assets/svg/plante1.svg');
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  #concept .container { flex-direction: column-reverse; text-align: center; }
+  .concept-images { height: auto; margin-bottom: 2rem; }
+  .concept-images img { position: relative; transform: none; margin: .5rem; width: 80%; height: auto; }
+}
+
+
+
+/* ============================================
+   RESPONSIVE (adaptation mobile pour #divine)
+   ============================================ */
+@media (max-width: 768px) {
+  #divine .container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .svg-plante-2 {
+    display: none;
+  }
+}
+
+/* ============================================
+   SECTION “Dinner Party”
+   --------------------------------------------
+   Structure similaire à la section Concept
+   ============================================ */
+#dinner {
+  position: relative;
+  background-color: #8A0932; /* même couleur que l'intro */
+  padding: 6rem 8%;
+  overflow: hidden; /* permet aux SVG et images de dépasser */
+  z-index: 5; 
+}
+
+/* Conteneur 2 colonnes inversé : images à gauche, texte à droite */
+#dinner .container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Bloc images à gauche
+   --------------------------------------------
+   On garde les positions définies précédemment
+   ============================================ */
+.dinner-images {
+  position: relative;
+  flex: 1;
+  height: 500px;
+}
+
+.dinner-images img {
+  position: absolute;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Grande image verticale en haut à gauche */
+.dinner-images .img1 {
+  top: -6%;
+  left: -5%;
+  width: 280px;
+  height: 320px;
+  z-index: 1;
+}
+
+/* Petite image au milieu */
+.dinner-images .img2 {
+  top: 38%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  z-index: 3;
+}
+
+/* Grande image horizontale en bas */
+.dinner-images .img3 {
+  top: 49%;
+  left: 0;
+  width: 550px;
+  height: 370px;
+  z-index: 2;
+}
+
+/* ============================================
+   Bloc texte : typographie et style
+   --------------------------------------------
+   Aligné à droite
+   ============================================ */
+.dinner-text {
+  flex: 1;
+  max-width: 600px;
+  color: #FFF9EB; /* texte clair sur fond bordeaux */
+  font-family: 'Kaisei Tokumin', serif;
+}
+
+.dinner-text .subtitle {
+  margin-bottom: 1rem;
+}
+
+.dinner-text h2 {
+  font-family: 'Laluna', serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.dinner-text p {
+  line-height: 2.1;
+  max-width: 80ch;
+  margin-bottom: 1.5rem;
+}
+
+.dinner-text a.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #FFF9EB;
+  color: #8A0932;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  transition: background 0.3s;
+}
+
+.dinner-text a.btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* ============================================
+   Décors SVG pour Dinner Party
+   --------------------------------------------
+   Plante en haut à gauche
+   Cocktail en bas à droite
+   ============================================ */
+#dinner .svg-plante {
+  position: absolute;
+  top: -1%;
+  left: -2%;
+  width: 250px;
+  height: 200px;
+  background-image: url('../assets/svg/plante-accueil.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 1.2;
+  z-index: 0;
+}
+
+#dinner .svg-cocktail {
+  position: absolute;
+  top: 46%;
+  bottom: 10%;
+  left: auto;
+  right: -13%;
+  width: 500px;
+  height: 450px;
+  transform: rotate(2deg);
+  background-image: url('../assets/svg/verre-cocktail.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+/* ============================================
+   SECTION “Podcast”
+   --------------------------------------------
+   Image de fond + texte et boutons centrés
+   ============================================ */
+#podcast {
+  position: relative;
+  min-height: 100vh; /* plein écran */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Image de fond plein écran */
+#podcast .podcast-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/photo-footer.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Contenu au-dessus de l'image */
+#podcast .podcast-content {
+  position: relative;
+  z-index: 1; /* par-dessus l'image */
+  color: #fff;
+  padding: 2rem;
+}
+
+#podcast h2 {
+  font-family: 'Laluna', serif;
+  font-weight: 400;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   Boutons Spotify et Apple
+   ============================================ */
+.podcast-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.podcast-buttons .btn-podcast {
+  height: 40px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.podcast-buttons .btn-podcast:hover {
+  transform: scale(1.05);
+}
+
+
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  #dinner .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dinner-images {
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .dinner-images img {
+    position: relative;
+    transform: none;
+    margin: 0.5rem;
+    width: 80%;
+    height: auto;
+  }
+}
+
+
+
+/* ============================================
+   RESPONSIVE (adaptation mobile)
+   --------------------------------------------
+   Passage en colonne et masquage des SVG
+   ============================================ */
+@media (max-width: 768px) {
+  #intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .intro-left,
+  .intro-right {
+    width: 100%;
+  }
+  .intro-right {
+    height: auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .intro-right img {
+    position: relative;
+    transform: none;
+    margin: 0.5rem;
+    width: 80%;
+    height: auto;
+  }
+  .svg-bg {
+    display: none;
+  }
+}
+
+/* ============================================
+   UTILITAIRES / SPANS
+   --------------------------------------------
+   Positionnement de “Div” en Luxurious Script
+   ============================================ */
+.headline {
+  position: relative;
+}
+.headline .luxurious {
+  font-family: 'Luxurious Script', cursive;
+  display: inline-block;
+  position: absolute;
+  top: 2.5rem;
+  left: 8rem;
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
