@@ -845,3 +845,35 @@ body {
   line-height: 1;
   letter-spacing: -0.05em;
 }
+
+/* ============================================
+   ANIMATIONS SCROLL : Fade + Slide Up
+============================================ */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   ANIMATIONS SVG flottants (respiration douce)
+============================================ */
+.svg-floating {
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px); /* plus haut */
+  }
+}
+
+
